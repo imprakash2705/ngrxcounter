@@ -1,3 +1,6 @@
+import {Counter} from './counter.model';
+
+
 export const initialState = {
-  count:0,
-}
+  counter: 0,
+};

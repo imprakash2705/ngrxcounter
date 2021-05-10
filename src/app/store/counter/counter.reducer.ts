@@ -4,9 +4,9 @@ import {decrement, increment, reset} from './counter.action';
 
 
 const counterReducer = createReducer(initialState,
-  on(increment, (state) =>({...state})),
-  on(decrement, (state) => ({...state})),
-  on(reset, (state) => ({...state})));
+  on(increment, (state) => ({...state, counter: state.counter + 1})),
+  on(decrement, (state) => ({...state, counter: state.counter - 1})),
+  on(reset, (state) => ({...state, counter: 0})));
 
 
 export function countReducer(state, action){
