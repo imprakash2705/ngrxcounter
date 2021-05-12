@@ -1,9 +1,10 @@
 
 export interface Counter{
   counter: number;
+  channelName: string;
 }
 
 
 export interface AppState{
-  counter: Counter;
+  count: Counter;
 }

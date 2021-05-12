@@ -12,3 +12,8 @@
     </div>
   </div>
 </div>
+<input type="text" [(ngModel)]="value">
+<button (click)="onCustomIncrement()" class="btn btn-primary"> custom increment</button>
+<h1>{{channelName}}</h1>
+<input type="text" [(ngModel)]="channelName">
+<button  class= "btn btn-primary" (click)="onChannelNameChanged()"> change channel name</button>

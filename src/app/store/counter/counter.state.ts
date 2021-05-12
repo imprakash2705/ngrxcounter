@@ -1,6 +1,7 @@
 import {Counter} from './counter.model';
 
 
-export const initialState = {
+export const initialState: Counter = {
   counter: 0,
+  channelName: '',
 };

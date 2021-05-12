@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Store} from '@ngrx/store';
-import {decrement, increment, reset} from '../../store/counter/counter.action';
+import {channelNameChanged, customIncrement, decrement, increment, reset} from '../../store/counter/counter.action';
+import {Counter} from '../../store/counter/counter.model';
+import {getChannelName} from '../../store/counter/counter.selector';
 
 @Component({
   selector: 'app-counter-input',
@@ -8,10 +10,15 @@ import {decrement, increment, reset} from '../../store/counter/counter.action';
   styleUrls: ['./counter-input.component.css']
 })
 export class CounterInputComponent implements OnInit {
-
-  constructor( private store: Store <{count: {counter : number}}>) { }
+value;
+channelName;
+  constructor( private store: Store <{count: Counter}>) { }
 
   ngOnInit(): void {
+    this.store.select(getChannelName).subscribe((res) => {
+      this.channelName = res;
+      console.log('channel name')
+    })
   }
 onIncrement(){
     this.store.dispatch(increment());
@@ -21,5 +28,11 @@ onIncrement(){
   }
   onReset(){
     this.store.dispatch(reset());
+  }
+  onCustomIncrement(){
+    this.store.dispatch(customIncrement({value: this.value}));
+  }
+  onChannelNameChanged(){
+    this.store.dispatch(channelNameChanged({name: this.channelName}));
   }
 }

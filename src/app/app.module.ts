@@ -10,6 +10,7 @@ import {AppState} from './store/counter/counter.model';
 import {countReducer} from './store/counter/counter.reducer';
 import {HttpClientModule} from '@angular/common/http';
 import {StoreModule} from '@ngrx/store';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {StoreModule} from '@ngrx/store';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    StoreModule.forRoot({count: countReducer})
+    StoreModule.forRoot({count: countReducer}),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
