@@ -15,7 +15,6 @@ counter: number;
   ngOnInit(): void {
      this.store.select(getCounter).subscribe((res) => {
        this.counter = res;
-       console.log('counter observable');
      })
   }
 

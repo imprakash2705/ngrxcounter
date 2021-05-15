@@ -11,20 +11,28 @@ import {countReducer} from './store/counter/counter.reducer';
 import {HttpClientModule} from '@angular/common/http';
 import {StoreModule} from '@ngrx/store';
 import {FormsModule} from '@angular/forms';
+import {environment} from '../environments/environment';
+import {StoreDevtoolsModule} from '@ngrx/store-devtools';
+import {AppReducer} from './store/counter/counter.model';
+import { DemoComponent } from './demo/demo.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CounterShowComponent,
     CounterInputComponent,
-    CounterOutputComponent
+    CounterOutputComponent,
+    DemoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    StoreModule.forRoot({count: countReducer}),
-    FormsModule
+    StoreModule.forRoot(AppReducer),
+    FormsModule,
+    StoreDevtoolsModule.instrument({
+      logOnly: environment.production, // Restrict extension to log-only mode
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]

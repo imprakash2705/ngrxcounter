@@ -66,11 +66,12 @@
     ],
     "quotemark": [
       true,
-      "single"
+      "single",
+      "double"
     ],
     "semicolon": {
       "options": [
-        "always"
+        "never"
       ]
     },
     "space-before-function-paren": {

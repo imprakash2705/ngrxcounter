@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Store} from '@ngrx/store';
 import {channelNameChanged, customIncrement, decrement, increment, reset} from '../../store/counter/counter.action';
-import {Counter} from '../../store/counter/counter.model';
+import {AppState, Counter} from '../../store/counter/counter.model';
 import {getChannelName} from '../../store/counter/counter.selector';
 
 @Component({
@@ -12,12 +12,11 @@ import {getChannelName} from '../../store/counter/counter.selector';
 export class CounterInputComponent implements OnInit {
 value;
 channelName;
-  constructor( private store: Store <{count: Counter}>) { }
+  constructor( private store: Store <AppState>) { }
 
   ngOnInit(): void {
     this.store.select(getChannelName).subscribe((res) => {
       this.channelName = res;
-      console.log('channel name')
     })
   }
 onIncrement(){
