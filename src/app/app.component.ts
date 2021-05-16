@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {AfterContentInit, AfterViewInit, Component, ViewChild} from '@angular/core';
 import {of} from 'rxjs';
 
 @Component({
@@ -6,8 +6,9 @@ import {of} from 'rxjs';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit{
   title = 'ngrxcounter'
+  @ViewChild('sample') input;
   constructor() {
     let person = {name:'Prakash'}
    let observableperson= of(person);
@@ -15,4 +16,12 @@ export class AppComponent {
       console.log(data)
     })
   }
-}
+
+
+  ngAfterViewInit() {
+    console.log(this.input)
+
+  }
+  }
+
+
