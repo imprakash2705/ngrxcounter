@@ -15,6 +15,7 @@ import {environment} from '../environments/environment';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import {AppReducer} from './store/counter/counter.model';
 import { DemoComponent } from './demo/demo.component';
+import { NewComponentComponent } from './new-component/new-component.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { DemoComponent } from './demo/demo.component';
     CounterShowComponent,
     CounterInputComponent,
     CounterOutputComponent,
-    DemoComponent
+    DemoComponent,
+    NewComponentComponent
   ],
   imports: [
     BrowserModule,
